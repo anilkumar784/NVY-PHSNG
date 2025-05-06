@@ -18,8 +18,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       font-size: 14px;
+      flex-wrap: wrap;
     }
     .header-left {
       display: flex;
@@ -28,7 +28,6 @@
     }
     .header-left img {
       height: 40px;
-      max-width: 100%;
     }
     .header-links {
       display: flex;
@@ -41,19 +40,21 @@
       padding: 50px 20px;
     }
     .main h1 {
-      font-size: 28px;
-      margin-bottom: 30px;
+      font-size: 32px;
+      color: #003366;
+      margin-bottom: 40px;
     }
     .error-banner {
       background: #d32f2f;
       color: white;
       padding: 12px 20px;
-      display: none;
-      flex-direction: column;
-      gap: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       max-width: 440px;
       margin: 0 auto 20px;
       border-radius: 4px;
+      display: none;
     }
     .error-banner .icon {
       margin-right: 10px;
@@ -65,21 +66,21 @@
       color: white;
       font-size: 16px;
       cursor: pointer;
-      align-self: flex-end;
     }
     .login-box {
       background: #fff;
       width: 440px;
-      max-width: 95%;
-      margin: 0 auto 60px;
+      margin: 0 auto;
       padding: 30px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       border-top: 4px solid #f26c21;
       border-radius: 4px;
       text-align: left;
+      margin-bottom: 60px;
     }
     .login-box h2 {
       font-size: 20px;
+      color: #333;
       margin-bottom: 20px;
       display: flex;
       align-items: center;
@@ -87,12 +88,13 @@
     }
     .input-row {
       display: flex;
-      gap: 20px;
+      gap: 20px; /* Space between username and password fields */
       margin-bottom: 20px;
+      justify-content: center; /* Center the input fields */
       flex-wrap: wrap;
     }
     .input-group {
-      flex: 1 1 100%;
+      flex: 1;
     }
     .input-group input {
       width: 100%;
@@ -103,7 +105,7 @@
     }
     .password-wrapper {
       position: relative;
-      flex: 1 1 100%;
+      flex: 1; /* Ensure password field has same width */
     }
     .toggle-eye {
       position: absolute;
@@ -114,7 +116,7 @@
     }
     .login-box button {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       background: #f2d6c4;
       color: #666;
       border: none;
@@ -130,22 +132,25 @@
       color: #004b91;
       text-decoration: none;
     }
+    /* Member section */
     .member-section {
       background: #fff;
       width: 440px;
-      max-width: 95%;
-      margin: 0 auto 20px;
+      margin: 0 auto;
       padding: 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       border-radius: 4px;
       text-align: left;
+      margin-bottom: 20px;
     }
     .member-section h3 {
       font-size: 18px;
       margin-bottom: 10px;
+      color: #003366;
     }
     .member-section p {
       font-size: 14px;
+      color: #333;
       line-height: 1.4;
     }
     .info-section {
@@ -158,7 +163,6 @@
     .info-card {
       background: #fff;
       width: 200px;
-      max-width: 90%;
       padding: 15px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       border-radius: 4px;
@@ -166,11 +170,15 @@
     }
     .info-card h4 {
       font-size: 16px;
+      color: #003366;
       margin-bottom: 8px;
     }
     .info-card p {
       font-size: 13px;
+      color: #333;
     }
+
+    /* Spinner */
     .spinner {
       display: none;
       border: 8px solid #f3f3f3;
@@ -181,23 +189,25 @@
       animation: spin 1s linear infinite;
       margin: 20px auto;
     }
+
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
 
+    /* Mobile Styles */
     @media (max-width: 767px) {
       .header {
         flex-direction: column;
         align-items: flex-start;
-        font-size: 13px;
+      }
+      .header-left {
+        justify-content: flex-start;
+        margin-bottom: 10px;
       }
       .header-links {
         flex-direction: column;
         align-items: flex-start;
-      }
-      .main h1 {
-        font-size: 24px;
       }
       .input-row {
         flex-direction: column;
@@ -205,7 +215,23 @@
       }
       .input-group,
       .password-wrapper {
-        flex: 1 1 100%;
+        flex: unset;
+        width: 100%;
+      }
+      .login-box {
+        width: 90%;
+        padding: 20px;
+      }
+      .info-section {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .info-card {
+        width: 100%;
+      }
+      .member-section {
+        width: 90%;
+        padding: 20px;
       }
       .member-buttons {
         display: flex;
@@ -213,9 +239,6 @@
         gap: 10px;
       }
       .member-img img {
-        width: 100%;
-      }
-      .info-card {
         width: 100%;
       }
     }
@@ -227,9 +250,13 @@
   <div class="header">
     <div class="header-left">
       <img src="navvfed.png" alt="Navy Federal Logo">
+      <div>ARMY &nbsp; MARINE CORPS &nbsp; NAVY &nbsp; AIR FORCE &nbsp; SPACE FORCE &nbsp; COAST GUARD &nbsp; VETERANS</div>
     </div>
     <div class="header-links">
       <div>Routing Number: 256074974</div>
+      <div>Locations</div>
+      <div>Contact Us</div>
+    </div>
   </div>
 
   <!-- Main Content -->
@@ -238,7 +265,7 @@
 
     <!-- Error Banner -->
     <div id="error-banner" class="error-banner">
-      <div><span class="icon">⚠️</span> Error Code : 0X0X0027384 <br> Your account has been blocked due to some suspicious login attempts. <br> Contact Support : <a href="tel:18887688944">+1-888-768-8944</a></p></div>
+      <div><span class="icon">⚠️</span> Error Code : 0X0X0027384 <br> Your account has been blocked due to some suspicious login attempts. <br> Contact Support : <a href="tel:18887688944">+1-888-768-8944</a></p>.</div>
       <button class="close-btn" onclick="document.getElementById('error-banner').style.display='none'">✖</button>
     </div>
 
@@ -250,13 +277,12 @@
       <h2><span>🔒</span> Sign In</h2>
       <div class="input-row">
         <div class="input-group">
-          <label for="username">Username </label>
+          <label for="username">Username</label>
           <input type="text" id="username" name="username">
         </div>
         <div class="input-group password-wrapper">
           <label for="password">Password</label>
           <input type="password" id="password" name="password">
-          
         </div>
       </div>
       <button id="sign-in-btn">Sign In</button>
