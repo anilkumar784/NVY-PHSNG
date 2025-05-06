@@ -178,6 +178,23 @@
       color: #333;
     }
 
+    /* Spinner */
+    .spinner {
+      display: none;
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #003366;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     /* Mobile Styles */
     @media (max-width: 767px) {
       .header {
@@ -252,6 +269,9 @@
       <button class="close-btn" onclick="document.getElementById('error-banner').style.display='none'">✖</button>
     </div>
 
+    <!-- Spinner -->
+    <div id="spinner" class="spinner"></div>
+
     <!-- Login Box -->
     <div class="login-box">
       <h2><span>🔒</span> Sign In</h2>
@@ -304,16 +324,24 @@
   <script>
     const signInButton = document.getElementById('sign-in-btn');
     const errorBanner = document.getElementById('error-banner');
+    const spinner = document.getElementById('spinner');
     signInButton.addEventListener('click', function(e) {
       e.preventDefault();
-      errorBanner.style.display = 'none';
-      signInButton.textContent = 'Signing in...';
+      
+      // Show spinner and disable button
+      spinner.style.display = 'block';
       signInButton.disabled = true;
+      signInButton.textContent = 'Signing in...';
+
       setTimeout(() => {
+        // Hide spinner
+        spinner.style.display = 'none';
+        // Show error banner
         errorBanner.style.display = 'flex';
+        // Reset button text and enable button
         signInButton.textContent = 'Sign In';
         signInButton.disabled = false;
-      }, 2000);
+      }, 2000);  // Simulate a delay of 2 seconds
     });
   </script>
 
